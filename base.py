@@ -23,6 +23,10 @@ with open(csv_file_path, newline='') as csvfile:
         
 isActive = False
 #isActive is for the main program runtime
+while isActive == True:
+    #have some info
+    user_username_entry = str(input("Please enter your username"))
+    #have username access username database for a login
         
 movie_database[movie_name] = movie_info
         
