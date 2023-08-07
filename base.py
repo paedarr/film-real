@@ -24,9 +24,28 @@ with open(csv_file_path, newline='') as csvfile:
 isActive = False
 #isActive is for the main program runtime
 while isActive == True:
-    #have some info
-    user_username_entry = str(input("Please enter your username"))
-    #have username access username database for a login
+    #have a ui for this in the future, but ask if user is an existing user
+    
+    ##--IS USER EXISTING USER SECTION--##
+    existingUser = False
+    does_user_exist = str(input("Are you an existing user? y/n:"))
+    if does_user_exist == "y":
+        existingUser = True
+    elif does_user_exist == "n":
+        existingUser = False
+    else:
+        print("Unknown input...exiting program")
+        break
+    ##---------------------------------##
+    
+    if existingUser == True:
+        #have user access username+password database for a login
+        user_username_entry = str(input("Please enter your username"))
+        user_password_entry = str(input("Please enter your password:"))
+    elif existingUser == False:
+        user_new_username_entry = str(input("Please enter your new username:"))
+        user_new_password_entry = str(input("Please enter your new password:"))
+    
         
 movie_database[movie_name] = movie_info
         
