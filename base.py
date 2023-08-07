@@ -12,16 +12,19 @@ with open(csv_file_path, newline='') as csvfile:
         movie_name = row["name"]
         movie_rating = int(row["rating"])
         movie_budget = int(row["budget"])
+        movie_director = row["director"]
         
         movie_info = {
             "name": movie_name,
             "rating": movie_rating,
             "budget": movie_budget,
+            "director": movie_director,
         }
         
-        movie_database[movie_name] = movie_info
+isActive = False
+#isActive is for the main program runtime
+        
+movie_database[movie_name] = movie_info
         
         
 sorted_movies = sorted(movie_database.items(), key=lambda x: x[0])
-        
-
