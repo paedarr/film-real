@@ -39,3 +39,10 @@ Remember to start with smaller sub-tasks and gradually build up to the complete 
 
 
 
+
+##-->DEPENDENCIES<--##
+
+-Needs 'cryptography' library 
+
+
+
