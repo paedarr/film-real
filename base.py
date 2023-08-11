@@ -45,7 +45,6 @@ isActive = True
 #isActive is for the main program runtime
 while isActive == True:
     #have a ui for this in the future, but ask if user is an existing user
-    print("I am reading keys:", readKeys())
     ##--IS USER EXISTING USER SECTION--##
     existingUser = False
     does_user_exist = str(input("Are you an existing user? y/n:"))
@@ -60,11 +59,22 @@ while isActive == True:
     
     if existingUser == True:
         #have user access username+password database for a login
-        
+        findUser = True
+        counter = 0
+        while findUser == True:
+            thisKey = readKeys(counter)
+            with open('user-files/passwords.txt', 'r') as file:
+                read_encrypted_data = file.read()
+                for line in file:
+                    print("Current Line:", line)
+                    decipher = Fernet(thisKey)
+                    decrypted_data = decipher.decrypt(read_encrypted_data).decode()
+                # save for later -> file.close()
         
         #user entry section:
         user_username_entry = str(input("Please enter your username"))
         user_password_entry = str(input("Please enter your password:"))
+        print("I am reading keys:", readPasswords(user_username_entry, user_password_entry))
     elif existingUser == False:
         user_new_username_entry = str(input("Please enter your new username:"))
         user_new_password_entry = str(input("Please enter your new password:"))
